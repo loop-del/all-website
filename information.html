@@ -3,39 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>looploop</title>
+    <title>LoopLoop</title>
     <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Main Section Styling */
         #main {
-            background-image: url(media/bg04.jpg);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('media/bg04.jpg');
             background-size: cover;
             background-position: center;
             width: 100vw;
             height: 100vh;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        #headtext {
-            background-image: url(media/bg08.jpg);
-            height: 150px;
-            text-align: center;
-            color: aquamarine;
             display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: #fff;
+        }
+
+        /* Header Styling */
+        #headtext {
+            background-image: linear-gradient(to right, #0066cc, #003399);
+            height: 150px;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            color: aquamarine;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
-        #button {
-            text-align: center;
-            margin-top: 10px;
+
+        #headtext h1 {
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
         }
+
+        #headtext img {
+            margin-left: 10px;
+        }
+
+        /* Navigation Styling */
         #button ul {
             list-style: none;
-            padding: 0;
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
         }
-        #button li {
-            display: inline-block;
-            margin: 0 10px;
-        }
+
         #button a {
             text-decoration: none;
             font-size: 18px;
@@ -43,124 +67,115 @@
             border: 2px solid transparent;
             border-radius: 50px;
             transition: all 0.3s ease;
+            color: #fff;
         }
+
         #homebn {
             background-color: #ffcc00;
             color: #000;
         }
+
         #homebn:hover {
             background-color: #e6b800;
             color: #fff;
             border-color: #fff;
         }
+
         #tablebn {
             background-color: #00b300;
             color: #fff;
         }
+
         #tablebn:hover {
             background-color: #009900;
             border-color: #fff;
         }
+
         #aboutbn {
             background-color: #ff4d4d;
             color: #fff;
         }
+
         #aboutbn:hover {
             background-color: #cc0000;
             border-color: #fff;
         }
 
-        #rgb {
-            animation: changeColour 5s infinite;
-        }
-        @keyframes changeColour {
-            0% { color: rgb(143, 219, 0); }
-            50% { color: rgb(0, 123, 145); }
-            100% { color: rgb(197, 0, 59); }
-        }
+        /* Middle Section Styling */
         #middletext {
-            color: #6effab;
             text-align: center;
-            
+            margin: 20px auto;
+            color: rgb(255, 224, 167);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
 
+        #middletext h1 {
+            font-size: 3rem;
+            animation: pulse 3s infinite;
         }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Footer Section Styling */
         #down {
-            color: rgb(0, 226, 139);
-            position: absolute;
             text-align: center;
-            bottom: 0;
-            width: 100%;
+            padding: 20px;
         }
+
+        #down img {
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        #down img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Progress Bar Styling */
         #progress-container {
             display: none;
             width: 100%;
-            height: 2px;
+            height: 4px;
             background-color: #ddd;
             position: fixed;
             top: 0;
             left: 0;
+            z-index: 1000;
         }
+
         #progress-bar {
             width: 0;
             height: 100%;
-            background-color: #4caf50;
+            background: linear-gradient(to right, #4caf50, #81c784);
             transition: width 0.5s ease;
         }
     </style>
 </head>
 <body id="main">
     <header id="headtext">
-        <i><b><h1>Loop <img src="media/logo4.png" alt="logo img" height="45px"> Loop</b></i>
+        <i><h1>Information</h1></i>
+        <br>
         <nav id="button">
             <ul>
                 <li><a href="index.html" id="homebn" onclick="showProgress(event, 'index.html')">Home</a></li>
-                <li><a href="information.html" id="tablebn" onclick="showProgress(event, 'information.html')">Script</a></li>
+                <li><a href="information.html" id="tablebn" onclick="showProgress(event, 'information.html')"></a></li>
                 <li><a href="about.html" id="aboutbn" onclick="showProgress(event, 'about.html')">About</a></li>
-            </ul></h1>
+            </ul>
         </nav>
     </header>
 
     <section id="middletext">
-        <h1>HELLO,</h1>
-        <h3>guys, please subscribe to my channel:</h3>
         
-        
-        <a href="https://www.youtube.com/@TEchvideo-abg" target="_blank">
-            <img src="media/logo5.png" alt="YouTube logo"
-                 style="border-radius: 100%; transition: 2.5s; cursor: pointer;" 
-                 onmouseover="this.style.transform='scale(4)'" 
-                 onmouseout="this.style.transform='scale(1)'"
-                 onmouseclick="this.style.transform='scale(0.5)'">
-        </a>
-        <img src="media/logo6.png" alt="img" height="250px" style="float: left; border-radius: 150px;" >
-        <b><i><p style="text-align: center;">wellcome to my website, <br> in which i show the information about my channel and project, also every five days i add one script of different language and project <br> and also teach you if you want to learn about html, python, java, css and other i give you many script with project</p></i></b>    
-        
-
-
     </section>
 
     <section id="down">
-        <p><i>Loop <img src="media/logo4.png" alt="logo img" height="45px"> Loop</i></p>
+
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <div id="progress-container">
         <div id="progress-bar"></div>
@@ -187,6 +202,5 @@
             }, 100); // Adjust speed here
         }
     </script>
-
 </body>
 </html>
